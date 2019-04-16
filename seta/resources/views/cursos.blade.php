@@ -17,10 +17,10 @@
                 <td>{{ $dados->id }}</td>
                 <td>{{ $dados->nome }}</td>
                 <td>{{ $dados->abreviatura }}</td>
-{{--                <td>--}}
-{{--                    <a href="{{ action('CursoController@editar', $dados->id) }}">Editar</a>--}}
-{{--                    <a href="{{ action('CursoController@remover', $dados->id) }}"></a>--}}
-{{--                </td>--}}
+                <td>
+                    <a href="{{ action('CursoController@editar', $dados->id) }}">Editar</a>
+                    <a href="{{ action('CursoController@remover', $dados->id) }}">Remover</a>
+                </td>
             </tr>
         @endforeach
     </table>
