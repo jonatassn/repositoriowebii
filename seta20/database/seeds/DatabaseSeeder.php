@@ -12,11 +12,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
+        //alunos
         DB::insert('INSERT INTO alunos(nome, curso, turma)values(?,?,?)',
-            array('João Paulo França', 'TADS', 'TADS18'));
+            array(mb_strtoupper('João Paulo França', 'UTF-8'), 'TADS', 'TADS18'));
         DB::insert('insert into alunos(nome,curso,turma) values(?,?,?)',
-            array('Mariana Ramos Albernaz', 'INFO', 'INFO12'));
+            array(mb_strtoupper('Mariana Ramos Albernaz','UTF-8'), 'INFO', 'INFO18'));
 
+        //niveis
         DB::insert('insert into nivel_models(nome, abreviatura) values(?,?)',
                     array('Ensino Médio', 'Médio'));
         DB::insert('insert into nivel_models(nome, abreviatura) values(?,?)',

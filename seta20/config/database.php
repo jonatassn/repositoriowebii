@@ -41,11 +41,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'seta30'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', 'Gil.Eduardo12'),
+            'host' => env('DB_HOST', 'infoprojetos.com.br'),
+            'port' => env('DB_PORT', '3132'),
+            'database' => env('DB_DATABASE', 'tads17_jonatas'),
+            'username' => env('DB_USERNAME', 'tads17_jonatas'),
+            'password' => env('DB_PASSWORD', '0800'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
