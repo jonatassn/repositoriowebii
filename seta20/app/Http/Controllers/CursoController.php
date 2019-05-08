@@ -141,4 +141,17 @@ class CursoController extends Controller {
 
         return redirect()->action('CursoController@listar');
     }
+
+	public function listar_api() {
+		$cursos = CursoModel::all();
+		echo json_encode($cursos);
+	}
+
+	public function cadastrar_api() {
+		$curso = new CursoModel();
+		
+		$curso->nome = Request::input('nome');
+
+		echo json_encode(array('nome' => $curso->nome ) );
+	}
 }
