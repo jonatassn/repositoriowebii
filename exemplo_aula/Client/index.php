@@ -7,21 +7,23 @@
 		if($_POST['botao'] == "get") {
 			// GET
 			$get = GET();
+			$post = "";
+			$put = "";
 		}
 		else if($_POST['botao'] == "post") {
 			// POST
 			$post = POST();
+			$get = "";
+			$put = "";
 		}
 		else if($_POST['botao'] == "put") {
 			// PUT
 			$put = PUT();
+			$post = "";
+			$get = "";
 		}
-		else if($_POST['botao'] == "delete") {
-			// DELETE
-			$delete = DELETE();
-		}
-    }
-	else {
+	}	
+   	else {
 		$get = "";
 		$post = "";
 		$put = "";
@@ -46,7 +48,24 @@
     <!-- Custom styles for this template -->
     <link href="bs/themes/signin.css" rel="stylesheet">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		function fMasc(objeto,mascara) {
+			obj=objeto
+			masc=mascara
+			setTimeout("fMascEx()",1)
+		}
+		function fMascEx() {
+			obj.value=masc(obj.value)
+		}
+		function mCPF(cpf){
+			cpf=cpf.replace(/\D/g,"")
+			cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+			cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+			cpf=cpf.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+			return cpf
+		}
+	</script>
 
   </head>
 
@@ -143,7 +162,7 @@
 					?>
 				</div>
 
-				<!-- PUT -->
+				<!-- GET -->
 				<div class='col-sm-3'>
 					<h1 style="font-weight: bold;font-size: 18px;text-align: center;" >Autenticar Usuário</h1>
 					<br>
@@ -153,15 +172,16 @@
 					<br>
 					<!-- ID -->
 					<label>Usuário</label>
-					<input type="text" class="form-control" name="usuario_get" maxlength="5">
+					<input type="text" class="form-control" name="usuario_get" maxlength="40">
 					<br>
 					<!-- Nome -->
 					<label>Senha</label>
 					<input type="password" class="form-control" name="senha_get" maxlength="40">
 					<br>
 					<?php
-						if($put != "") {
+						if($get != "") {
 							echo "<div class='alert alert-success' role='alert'>";
+
 								$dadoJson = json_decode($get);
 								$msg = $dadoJson->{'msg'};
 			   					echo "<strong>Retorno do Web Service!</strong><br>$msg";
@@ -170,22 +190,23 @@
 					?>
 				</div>
 
-				<!-- DELETE -->
+				<!-- PUT -->
 				<div class='col-sm-3'>
 					<h1 style="font-weight: bold;font-size: 18px;text-align: center;" >Validar CPF</h1>
 					<br>
-					<button type="submit" name="botao" value="delete" class="btn btn-warning btn-block">
+					<button type="submit" name="botao" value="put" class="btn btn-warning btn-block">
 						<b>Confirmar / Validar</b>
 					</button>
 					<br>
 					<!-- ID -->
-					<label>ID</label>
-					<input type="text" class="form-control" name="id_delete" maxlength="5">
+					<label>CPF</label>
+					<input type="text" class="form-control" name="cpf_put" minlength="14" maxlength="14" onkeydown="javascript: fMasc( this, mCPF );">
 					<br>
 					<?php
-						if($delete != "") {
+						if($put != "") {
 							echo "<div class='alert alert-success' role='alert'>";
-								$dadoJson = json_decode($delete);
+							
+								$dadoJson = json_decode($put);
 								$msg = $dadoJson->{'msg'};
 			   					echo "<strong>Retorno do Web Service!</strong><br>$msg";
 			 				echo "</div>";
