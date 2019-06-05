@@ -11,14 +11,12 @@
 |
 */
 
-Route::get('/', 'MailController@listar');
+Route::get('/', 'MailController@listar')->middleware('auth');
 
-Route::post('/cadastrar', 'MailController@cadastrar');
-Route::post('/enviar', 'MailController@enviar');
-
-//Route::post('/enviar', 'MailController@enviar');
-//Route::post('/concluir', 'MailController@concluir');
+Route::group(['middleware' => 'auth'], function() {
+	Route::post('/cadastrar', 'MailController@cadastrar');
+	Route::post('/enviar', 'MailController@enviar');
+});
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
