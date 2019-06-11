@@ -1,0 +1,46 @@
+maclist
++-------------------+-------------+------+-----+---------+----------------+
+| Field             | Type        | Null | Key | Default | Extra          |
++-------------------+-------------+------+-----+---------+----------------+
+| id                | int(11)     | NO   | PRI | NULL    | auto_increment |
+| mac_adress        | varchar(15) | NO   |     | NULL    |                |
+| data_entrada      | datetime    | NO   |     | NULL    |                |
+| data_saida        | datetime    | NO   |     | NULL    |                |
+| intensidade_sinal | varchar(10) | YES  |     | NULL    |                |
+| esp_id            | int(11)     | NO   | MUL | NULL    |                |
++-------------------+-------------+------+-----+---------+----------------+
+
+especimens
++----------------+--------------+------+-----+---------+----------------+
+| Field          | Type         | Null | Key | Default | Extra          |
++----------------+--------------+------+-----+---------+----------------+
+| id             | int(11)      | NO   | PRI | NULL    | auto_increment |
+| nickname       | varchar(100) | YES  |     | NULL    |                |
+| age            | date         | NO   |     | NULL    |                |
+| gender         | bit(1)       | NO   |     | NULL    |                |
+| biometric_info | varchar(45)  | NO   |     | NULL    |                |
+| id_researcher  | int(11)      | NO   | MUL | NULL    |                |
+| id_tag         | int(11)      | NO   | MUL | NULL    |                |
++----------------+--------------+------+-----+---------+----------------+
+
+tags
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| id_tag    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| frequency | varchar(20) | YES  |     | NULL    |                |
+| id_hex    | varchar(50) | NO   |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+
+researchers
++---------------+---------------------+------+-----+---------+----------------+
+| Field         | Type                | Null | Key | Default | Extra          |
++---------------+---------------------+------+-----+---------+----------------+
+| id_researcher | int(11)             | NO   | PRI | NULL    | auto_increment |
+| first_name    | varchar(50)         | NO   |     | NULL    |                |
+| last_name     | varchar(100)        | NO   |     | NULL    |                |
+| nin           | varchar(100)        | NO   |     | NULL    |                |
+| external_url  | varchar(255)        | YES  |     | NULL    |                |
+| type          | tinyint(4)          | NO   |     | NULL    |                |
+| id_user       | bigint(20) unsigned | NO   | MUL | NULL    |                |
++---------------+---------------------+------+-----+---------+----------------+
