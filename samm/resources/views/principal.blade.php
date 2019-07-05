@@ -14,6 +14,12 @@
         <script src="{{ url('/js/jquery-3.3.1.slim.js') }}"></script>
         <script src="{{ url('/js/bootstrap.min.js') }}"></script>
 
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <!-- Custom styles for this template -->
+        <link href="{{ url('/themes/theme.css') }}" rel="stylesheet">
+        <!-- Ajax Script -->
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
         @yield('script')
 
     </head>

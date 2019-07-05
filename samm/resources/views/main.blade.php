@@ -61,7 +61,7 @@
 @section('cabecalho')
 
     <div id="m_texto">
-        <img src=" {{ url('/img/homep_ico.png') }}" >
+        <img src=" {{ url('/img/home.png') }}" >
         &nbsp;Menu Principal
     </div>
 @stop
@@ -70,29 +70,29 @@
     <div class='row'>
 
         <div class='col-sm-3' style="text-align: center">
-            <a href="/resgistro">
+            <a href="/registro">
                 <img src="{{ url('/img/register.png') }}">
             </a>
             <h3> Registros </h3>
         </div>
 
         <div class='col-sm-3' style="text-align: center">
-            <a href="/turma">
-                <img src="{{ url('/img/register.png') }}">
+            <a href="/tag">
+                <img src="{{ url('/img/tag.png') }}">
             </a>
             <h3> Tags </h3>
         </div>
 
         <div class='col-sm-3' style="text-align: center">
-            <a href="/aluno">
-                <img src="{{ url('/img/register.png') }}">
+            <a href="/individuo">
+                <img src="{{ url('/img/individual.png') }}">
             </a>
             <h3> Indivíduos </h3>
         </div>
 
         <div class='col-sm-3' style="text-align: center">
             <a href="/disciplina">
-                <img src="{{ url('/img/register.png') }}">
+                <img src="{{ url('/img/module.png') }}">
             </a>
             <h3> Módulos </h3>
         </div>
@@ -101,28 +101,11 @@
     <div class='row'>
         <div class='col-sm-3' style="text-align: center">
             <a href="/conceito">
-                <img src="{{ url('/img/register.png') }}">
+                <img style="width: 64px; height: 64px;" src="{{ url('/img/report.png') }}">
             </a>
             <h3> Relatório </h3>
         </div>
 
     </div>
-    <form >
-        <h2>Carregar arquivo de Registros</h2>
-        <div class="row">
-            <br>
-            <div class="col-sm-4 form-group">
-                <div class="input-group input-file" name="arq_alunos">
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary btn-choose" type="button">Abrir Navegador</button>
-                    </span>
-                    <input type="text" class="form-control" placeholder='Nenhum arquivo selecionado...' />
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <button type="submit" class="btn btn-primary btn-block"><b>Carregar</b></button>
-            </div>
-        </div>
-        <br>
-    </form>
+
 @stop

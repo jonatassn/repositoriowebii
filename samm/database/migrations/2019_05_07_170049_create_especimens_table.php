@@ -17,11 +17,11 @@ class CreateEspecimensTable extends Migration
         Schema::create('especimens', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nickname');
-            $table->date('age');
+            $table->integer('age');
             $table->tinyInteger('gender');
             $table->string('biometric_info');
             $table->integer('id_researcher');
-            $table->integer('id_tag');
+            $table->string('id_tag');
             //$table->foreign('id_researcher')->references('id_researcher')->on('researchers');
             //$table->foreign('id_tag')->references('id_tag')->on('tags');
             $table->timestamps();
