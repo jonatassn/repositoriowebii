@@ -36,6 +36,18 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/individuo/editar/{id}','IndividuoController@editar');
     Route::get('/individuo/remover/{id}', 'IndividuoController@remover');
     Route::get('/individuo/confirmar/{id}', 'IndividuoController@confirmar');
+
+    //modulo
+    Route::get('/modulo', 'ModuloController@listar');
+    Route::post('/modulo/salvar/{id}', 'ModuloController@salvar');
+    Route::get('/modulo/editar/{id}','ModuloController@editar');
+    Route::get('/modulo/remover/{id}', 'ModuloController@remover');
+    Route::get('/modulo/confirmar/{id}', 'ModuloController@confirmar');
+
+    //relatorio
+    Route::get('/relatorio', 'RelatorioController@listar');
+    Route::post('/relatorio/enviar', 'RelatorioController@enviarEmail');
+    Route::get('/relatorio/gerar', 'RelatorioController@gerarRelatorio');
 });
 
 

@@ -13,16 +13,18 @@ class EnviarEmail extends Mailable {
     public $view;
     public $dados;
     public $titulo;
+    public $anexo;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($view, $dados, $titulo) {
+    public function __construct($view, $dados, $titulo, $anexo = null) {
         $this->view = $view;
         $this->dados = $dados;
         $this->titulo = $titulo;
+        $this->anexo = $anexo;
     }
 
     /**
@@ -31,12 +33,16 @@ class EnviarEmail extends Mailable {
      * @return $this
      */
     public function build() {
-        return $this->view($this->view)
-            ->from("contato.silveiraj@gmail.com", "Relança")
-            // ->cc($address, $name)
-            // ->bcc($address, $name)
-            // ->replyTo($address, $name)
-            ->subject($this->titulo)
-            ->with('dados', $this->dados);
+        if($this->anexo != null) {
+            return $this->view($this->view)
+                ->from("contato.silveiraj@gmail.com", "SAMM")
+                // ->cc($address, $name)
+                // ->bcc($address, $name)
+                // ->replyTo($address, $name)
+                ->subject($this->titulo)
+                ->with('dados', $this->dados)
+                ->attachData($this->anexo, 'Relatorio Registros.pdf');
+        }
+
     }
 }

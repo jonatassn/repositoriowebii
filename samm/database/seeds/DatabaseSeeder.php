@@ -12,5 +12,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
+        DB::connection()->getPdo()->exec("drop view if exists registro_completo; create view registro_completo as select * from entries natural join especimens;");
     }
 }

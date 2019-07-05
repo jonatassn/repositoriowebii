@@ -91,7 +91,7 @@
         </div>
 
         <div class='col-sm-3' style="text-align: center">
-            <a href="/disciplina">
+            <a href="/modulo">
                 <img src="{{ url('/img/module.png') }}">
             </a>
             <h3> Módulos </h3>
@@ -100,7 +100,7 @@
     <br>
     <div class='row'>
         <div class='col-sm-3' style="text-align: center">
-            <a href="/conceito">
+            <a href="/relatorio">
                 <img style="width: 64px; height: 64px;" src="{{ url('/img/report.png') }}">
             </a>
             <h3> Relatório </h3>
